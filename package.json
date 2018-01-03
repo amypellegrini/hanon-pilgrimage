@@ -1,0 +1,23 @@
+{
+  "name": "hanon-pilgrimage",
+  "version": "0.1.0-alpha",
+  "description": "Hanon Pilgrimage to Mastery.",
+  "main": "hanon.core.js",
+  "scripts": {
+    "test": "tape -r babel-register src/**/*.test.js | faucet"
+  },
+  "repository": "git+https://github.com/amypellegrini/hanon-pilgrimage.git",
+  "author": "Amy Pellegrini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amypellegrini/hanon-pilgrimage/issues"
+  },
+  "homepage": "https://github.com/amypellegrini/hanon-pilgrimage#readme",
+  "private": true,
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "faucet": "^0.0.1",
+    "tape": "^4.8.0"
+  }
+}
