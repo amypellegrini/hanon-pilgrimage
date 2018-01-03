@@ -18,7 +18,7 @@ test('Exercise module', nest => {
 
     const exercise = createExercise(); 
     const actual = exercise.key;
-    const expected = 'C Major';
+    const expected = 'C';
 
     assert.equal(actual, expected, message);
     assert.end();
@@ -46,5 +46,52 @@ test('Exercise module', nest => {
     assert.end();
   });
 
-  nest.test('. ');
+  nest.test('. First exercise speed increment', assert => {
+    const message = 'Speed increment should be 0.';
+
+    const exercise = createExercise(); 
+    const actual = exercise.speedIncrement;
+    const expected = 0;
+
+    assert.equal(actual, expected, message);
+    assert.end();
+  });
+
+  nest.test('. First exercise base speed', assert => {
+    const message = 'Base speed should be 30 beats per minute.';
+
+    const exercise = createExercise(); 
+    const actual = exercise.baseSpeed;
+    const expected = 30;
+
+    assert.equal(actual, expected, message);
+    assert.end();
+  });
+
+  nest.test('. Second exercise properties (index 1)', assert => {
+    const message = 'Should also have index, key, title, and scale properties.';
+
+    const exercise = createExercise(1);
+    const actual =  exercise.hasOwnProperty('index')
+                    exercise.hasOwnProperty('key') &&
+                    exercise.hasOwnProperty('title') &&
+                    exercise.hasOwnProperty('speedIncrement') &&
+                    exercise.hasOwnProperty('scale');
+
+    const expected = true;
+
+    assert.equal(actual, expected, message);
+    assert.end();
+  });
+
+  nest.test('. Second exercise scale', assert => {
+    const message = 'It should be Bach Minor Scale.';
+
+    const exercise = createExercise(1);
+    const actual = exercise.scale;
+    const expected = 'Bach Minor Scale';
+
+    assert.equal(actual, expected, message);
+    assert.end();
+  });
 });

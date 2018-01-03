@@ -1,14 +1,28 @@
-const Exercise = (index) => {
-  if (!index) index = 0; 
-
+const Exercise = (index, key, title, scale, speedIncrement, baseSpeed) => {
   const exercise = {
-    index,
-    key: 'C',
-    title: 'Exercise 1',
-    scale: 'Major Scale/Ionian Mode'
+    index: index,
+    key: key,
+    title: title,
+    scale: scale,
+    speedIncrement: speedIncrement,
+    baseSpeed: baseSpeed
   };
 
   return exercise;
 };
 
-export default Exercise;
+const createExercise = (index) => {
+  let key = 'C';
+  let title = 'Exercise 1';
+  let scale = 'Major Scale/Ionian Mode';
+  let speedIncrement = 0;
+  let baseSpeed = 30;
+
+  if (index === 1) {
+    scale = 'Bach Minor Scale';
+  }
+
+  return Exercise(index, key, title, scale, speedIncrement, baseSpeed);
+}
+
+export default createExercise;
