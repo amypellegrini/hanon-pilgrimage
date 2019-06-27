@@ -1,23 +1,40 @@
 {
   "name": "hanon-pilgrimage",
   "version": "0.1.0-alpha",
-  "description": "Hanon Pilgrimage to Mastery.",
-  "main": "hanon.core.js",
+  "description": "Hanon Pilgrimage to Mastery",
+  "main": "src/hanon.core.js",
   "scripts": {
-    "test": "tape -r babel-register src/**/*.test.js | faucet"
+    "test": "babel-tape-runner src/**/*.test.js | faucet",
+    "integration-test": "babel-tape-runner integration-tests/index.js | faucet",
+    "build": "webpack --config config/webpack.config.js",
+    "clean": "rm -r dist"
   },
   "repository": "git+https://github.com/amypellegrini/hanon-pilgrimage.git",
-  "author": "Amy Pellegrini",
+  "author": "Amy Pellegrini <amyvpellegrini@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/amypellegrini/hanon-pilgrimage/issues"
   },
   "homepage": "https://github.com/amypellegrini/hanon-pilgrimage#readme",
-  "private": true,
+  "private": false,
   "devDependencies": {
-    "babel-preset-env": "^1.6.1",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "babel-loader": "^8.0.6",
     "babel-register": "^6.26.0",
+    "babel-tape-runner": "^3.0.0",
     "faucet": "^0.0.1",
-    "tape": "^4.8.0"
+    "tape": "^4.8.0",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5"
+  },
+  "engines": {
+    "node": "^10.15.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "core-js": "3"
   }
 }
