@@ -2,30 +2,19 @@ import test from "tape";
 import createExercise from "../exercise";
 
 test("Exercise module", nest => {
-  nest.test(". Exercise class", assert => {
-    const message = "it should return a new exercise when called.";
+  nest.test("should create an exercise when called", assert => {
+    const message = "the returned exercise should be a string";
 
     const exercise = createExercise();
-    const actual = typeof exercise === "object";
-    const expected = true;
+    const actual = typeof exercise;
+    const expected = "string";
 
     assert.equal(actual, expected, message);
     assert.end();
   });
 
-  nest.test(". First exercise key", assert => {
-    const message = "Exercise at index 0 shuold be in the key of C";
-
-    const exercise = createExercise();
-    const actual = exercise.key;
-    const expected = "C";
-
-    assert.equal(actual, expected, message);
-    assert.end();
-  });
-
-  nest.test(". First exercise title", assert => {
-    const message = 'It should be "Hanon Exercise 1".';
+  nest.test("first exercise title", assert => {
+    const message = 'it should be "Hanon Exercise Nr.1"';
 
     const exercise = createExercise();
     const actual = exercise.title;
@@ -35,12 +24,23 @@ test("Exercise module", nest => {
     assert.end();
   });
 
-  nest.test(". First exercise scale", assert => {
-    const message = "It should be the Major Scale/Ionian Mode.";
+  nest.test("first exercise key", assert => {
+    const message = "it should be in the key of C";
+
+    const exercise = createExercise();
+    const actual = exercise.key;
+    const expected = "C";
+
+    assert.equal(actual, expected, message);
+    assert.end();
+  });
+
+  nest.test("first exercise scale", assert => {
+    const message = "it should be the Major scale";
 
     const exercise = createExercise();
     const actual = exercise.scale;
-    const expected = "Major Scale/Ionian Mode";
+    const expected = "Major scale";
 
     assert.equal(actual, expected, message);
     assert.end();
